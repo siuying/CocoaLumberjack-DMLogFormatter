@@ -6,9 +6,9 @@
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
 //  You may obtain a copy of the License at
-//  
+//
 //  http://www.apache.org/licenses/LICENSE-2.0
-//  
+//
 //  Unless required by applicable law or agreed to in writing, software
 //  distributed under the License is distributed on an "AS IS" BASIS,
 //  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -39,28 +39,28 @@
         [_dateFormatter setFormatterBehavior:NSDateFormatterBehavior10_4];
         [_dateFormatter setDateFormat:@"dd.MM.yyyy HH:mm:ss:SSS"];
     }
-    
+
     return self;
 }
 
 - (NSString *)formatLogMessage:(DDLogMessage *)logMessage
 {
     NSString *logLevel;
-    switch (logMessage->logFlag)
+    switch (logMessage->_flag)
     {
         case LOG_FLAG_ERROR : logLevel = @"ERROR\t"; break;
         case LOG_FLAG_WARN  : logLevel = @"WARNING\t"; break;
         case LOG_FLAG_INFO  : logLevel = @"\t\t"; break;
         default             : logLevel = @"\t\t"; break;
     }
-    
-    NSString *dateAndTime = [_dateFormatter stringFromDate:(logMessage->timestamp)];
-    
-    NSString *logMsg = logMessage->logMsg;
-    
-    int lineNumber = logMessage->lineNumber;
-    
-    return [NSString stringWithFormat:@"%@ %@ @ %@.%@ (%d) # %@", logLevel, dateAndTime, logMessage.fileName, logMessage.methodName, lineNumber, logMsg];
+
+    NSString *dateAndTime = [_dateFormatter stringFromDate:(logMessage->_timestamp)];
+
+    NSString *logMsg = logMessage->_message;
+
+    int lineNumber = logMessage->_line;
+
+    return [NSString stringWithFormat:@"%@ %@ @ %@.%@ (%d) # %@", logLevel, dateAndTime, logMessage.fileName, logMessage.function, lineNumber, logMsg];
 }
 
 
