@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
 
   s.source_files = '*.{m,h}'
 
-  s.dependency 'CocoaLumberjack', '~> 1.3'
+  s.dependency 'CocoaLumberjack', '>= 1.3'
 end
