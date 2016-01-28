@@ -48,10 +48,10 @@
     NSString *logLevel;
     switch (logMessage->_flag)
     {
-        case LOG_FLAG_ERROR : logLevel = @"ERROR\t"; break;
-        case LOG_FLAG_WARN  : logLevel = @"WARNING\t"; break;
-        case LOG_FLAG_INFO  : logLevel = @"\t\t"; break;
-        default             : logLevel = @"\t\t"; break;
+        case DDLogFlagError   : logLevel = @"ERROR\t"; break;
+        case DDLogFlagWarning : logLevel = @"WARNING\t"; break;
+        case DDLogFlagInfo    : logLevel = @"\t\t"; break;
+        default               : logLevel = @"\t\t"; break;
     }
 
     NSString *dateAndTime = [_dateFormatter stringFromDate:(logMessage->_timestamp)];

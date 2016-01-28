@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Martin Stolz" => "martin@devmob.de" }
 
-  s.source       = { :git => "https://github.com/siuying/CocoaLumberjack-DMLogFormatter.git", :tag => "2.0.0" }
+  s.source       = { :git => "https://github.com/siuying/CocoaLumberjack-DMLogFormatter.git", :tag => "2.1.0" }
   s.platform     = :ios, '3.0'
 
   s.source_files = '*.{m,h}'
